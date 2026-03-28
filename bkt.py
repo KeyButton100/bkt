@@ -11,6 +11,7 @@ BKT=Actor("bucket.png")
 BKT.scale=0.5
 BKT.pos= WIDTH//2, HEIGHT-100
 music.play("sunsaimenu.wav")
+#sunsai
 music.set_volume(0.7)
 element=["money", "banpeel", "coin"]
 def create_elements():
@@ -25,12 +26,12 @@ def draw():
         message="Press space to start \n Control the bucket with left & right arrow keys \n Collect money, avoid trash \n You have 3 lives \n If you touch trash, you lose a life"
         screen.draw.text(message, center=(WIDTH//2, HEIGHT//2))
     elif gamestate=="play":
-        screen.draw.text("Score:"+str(score), (50, 50))
-        screen.draw.text("Life:"+str(life), (50, 70))
+        screen.draw.text("Score:"+str(score), (50, 50), fontsize= 40)
+        screen.draw.text("Life:"+str(life), (50, 70), fontsize= 40)
         for i in mo:
             i.draw()
     else:
-        screen.draw.text("Game End \n Press space to play again", center=(WIDTH/2, HEIGHT/2))
+        screen.draw.text("Game End \n Press space to play again", center=(WIDTH/2, HEIGHT/2), fontsize= 40)
 
 
 def update():
@@ -54,13 +55,14 @@ def update():
             if i.colliderect(BKT):
                 if i.image=="money":
                     sounds.point.play()
+                    #troy
                     score+=5
                 elif i.image=="coin":
                     sounds.coin.play()
-                    #
+                    #simonadams
                     score+=10
                 elif i.image=="banpeel":
-                    sounds.ow.play()
+ #         not work          sounds.trash.mp3.play()
                     #raclure
                     life-=1
                 mo.remove(i)
